@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狸匠拉麵 - 一碗入魂，一生懸命</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Zen+Old+Mincho:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #c11515;
+            --accent: #D4AF37;
+            --bg-dark: #0a0a0a;
+            --surface: #161616;
+            --text-primary: #E6E1D8;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: "Noto Serif TC", serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .font-display { font-family: "Zen Old Mincho", serif; }
+        .writing-vertical { writing-mode: vertical-rl; text-orientation: upright; }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .texture-overlay::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #F1C40F 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #252525; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .glass {
+            background: rgba(22, 22, 22, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="texture-overlay">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-[100] transition-all duration-500 py-8 px-6" id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-12 h-12 bg-[#c11515] flex items-center justify-center text-white font-display text-2xl font-bold shadow-[0_0_20px_rgba(193,21,21,0.5)]">狸</div>
+                <div class="flex flex-col">
+                    <span class="font-display text-2xl tracking-[0.3em]">狸匠拉麵</span>
+                    <span class="text-[10px] tracking-[0.5em] text-[#D4AF37] uppercase opacity-60">Tanuki Takumi</span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex gap-12">
+                <a href="#home" class="hover:text-[#c11515] transition-colors tracking-widest font-display">首頁</a>
+                <a href="#spirit" class="hover:text-[#c11515] transition-colors tracking-widest font-display">職人精神</a>
+                <a href="#menu" class="hover:text-[#c11515] transition-colors tracking-widest font-display">お品書き</a>
+                <a href="#info" class="hover:text-[#c11515] transition-colors tracking-widest font-display">店鋪情報</a>
+            </nav>
+            <button class="lg:hidden" id="mobile-toggle">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0a0a0a] z-[150] hidden flex flex-col items-center justify-center gap-12">
+        <button class="absolute top-8 right-8" id="mobile-close">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#home" class="text-4xl font-display tracking-[0.5em]">首頁</a>
+        <a href="#spirit" class="text-4xl font-display tracking-[0.5em]">職人精神</a>
+        <a href="#menu" class="text-4xl font-display tracking-[0.5em]">お品書き</a>
+        <a href="#info" class="text-4xl font-display tracking-[0.5em]">店鋪情報</a>
+    </div>
+
+    <!-- Hero -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <div class="absolute inset-0 parallax-bg grayscale-[30%] brightness-[0.35]" style="background-image: url('https://lh3.googleusercontent.com/aida/ADBb0uir4FOvEH4P6tGIIUye4LeZdGFlyXK0nZWznr2Oi_PTAGKbACymgF7RUYU-TPvxhgDl_5FnGAeet3v568zVFEy_aJerFYmINZcxIzyzysErGvjYy3vX_BNzPfyJ2j06KrYblOZZU3UVl2MW2GUxF8p_9S23vaMXIhxTxgX8vZC3PjIOprI0lqyMKQ-TTm-wZgGdb0BlSSBJNwG_c8FJ_xMxKnp9FsdHUMNI-UUxwkExKy3-ZJsXviMhEKhXIj8nMVDlBP8zOGaU0w')"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#0a0a0a]"></div>
+        <div class="relative z-10 text-center px-6">
+            <span class="gold-gradient font-display text-lg tracking-[1.2em] mb-8 block uppercase font-bold">匠人の技 • 本格拉麵</span>
+            <h1 class="text-6xl md:text-9xl font-display font-black tracking-[0.4em] mb-8 drop-shadow-2xl">一碗入魂</h1>
+            <h2 class="text-2xl md:text-5xl font-display tracking-[1em] opacity-80 mt-8">一生懸命</h2>
+            <div class="mt-16 flex flex-col items-center gap-8">
+                <p class="max-w-lg italic opacity-60 tracking-widest font-light">「在每一碗麵中注入靈魂，用一輩子的專注守護味道。」</p>
+                <a href="#menu" class="border border-[#D4AF37]/30 px-12 py-4 hover:bg-[#D4AF37]/10 transition-all tracking-[0.5em] text-[#D4AF37]">覽閱品項</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spirit -->
+    <section id="spirit" class="max-w-7xl mx-auto px-6 py-32 md:py-56 relative">
+        <div class="flex flex-col lg:flex-row gap-20">
+            <div class="lg:w-1/3">
+                <div class="lg:sticky lg:top-40">
+                    <h2 class="writing-vertical text-[#D4AF37] font-display text-5xl md:text-7xl tracking-[0.4em] leading-tight">職人之極意</h2>
+                    <div class="w-[1px] h-40 bg-gradient-to-b from-[#D4AF37] to-transparent ml-12 mt-8 hidden lg:block"></div>
+                </div>
+            </div>
+            <div class="lg:w-2/3 space-y-40">
+                <!-- Broth -->
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute inset-0 bg-[#c11515]/20 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform"></div>
+                        <div class="glass p-2">
+                            <img src="meat.jpg.JPG" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <div class="flex items-center gap-6">
+                            <span class="text-6xl font-display opacity-20">湯</span>
+                            <h3 class="text-3xl font-display tracking-widest">魂之湯頭</h3>
+                        </div>
+                        <div class="space-y-4 opacity-70 leading-loose text-lg font-light">
+                            <p>一碗拉麵的靈魂，在於湯頭。我們堅持每日以大量豬大骨、背脂與多種新鮮蔬菜，歷經三十六小時的慢火熬煮與不斷攪拌。</p>
+                            <p>職人日夜守候火爐旁，精準控溫，將骨髓精華完全釋放。最終淬鍊出這鍋深邃、濃郁而不膩口的白濁極致豚骨湯頭。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Noodles -->
+                <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute inset-0 bg-[#c11515]/20 -translate-x-4 translate-y-4 -z-10 group-hover:-translate-x-6 group-hover:translate-y-6 transition-transform"></div>
+                        <div class="glass p-2">
+                            <img src="noodles.jpg.PNG" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6 text-right">
+                        <div class="flex items-center gap-6 justify-end">
+                            <h3 class="text-3xl font-display tracking-widest">自家製麵</h3>
+                            <span class="text-6xl font-display opacity-20">麵</span>
+                        </div>
+                        <div class="space-y-4 opacity-70 leading-loose text-lg font-light">
+                            <p>好湯需有好麵相伴。捨棄市售現成麵條，我們設立自家製麵室，依據每日氣溫與濕度，微調小麥粉、水與鹼水的黃金比例。</p>
+                            <p>經過揉揑、延展與熟成，打造出能完美吸附濃郁湯汁的細直麵。入口時的滑順與咀嚼間的彈牙口感，是我們對完美的無盡追求。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meat -->
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute inset-0 bg-[#c11515]/20 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform"></div>
+                        <div class="glass p-2">
+                            <img src="torched.jpg.jpeg" class="w-full grayscale hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <div class="flex items-center gap-6">
+                            <span class="text-6xl font-display opacity-20">肉</span>
+                            <h3 class="text-3xl font-display tracking-widest">炙燒叉燒</h3>
+                        </div>
+                        <div class="space-y-4 opacity-70 leading-loose text-lg font-light">
+                            <p>嚴選肥瘦勻稱的頂級五花肉，以特製醬油與秘傳辛香料長時間滷製，使其入味至極、入口即化。</p>
+                            <p>在上桌前，必定經過高溫直火炙烤。跳躍的火焰瞬間鎖住肉汁，並逼出迷人的油脂炭香。這塊閃耀著焦糖色澤的叉燒，為整碗拉麵畫上最具爆發力的句號。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="bg-[#050505] py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col items-center mb-24 text-center">
+                <h2 class="writing-vertical text-6xl font-display tracking-[0.6em]">お品書き</h2>
+                <div class="mt-8 flex items-center gap-4">
+                    <div class="w-12 h-[1px] bg-[#D4AF37]/40"></div>
+                    <span class="text-[#D4AF37] text-sm tracking-[0.8em] font-medium italic uppercase">The Menu</span>
+                    <div class="w-12 h-[1px] bg-[#D4AF37]/40"></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Item 1 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0uj3ar1sONJ9erpeKz7yWpBWXchv_O26-vMPlGk2xhLuJlJMy2MD3wHH8UgNdJBFmPORzKv_RKlgEpAVvKEGcPTlowdfQ3g81qI48EEKLvwOHpo3fMYoSNduQ0v7pezSUtbjuh3ygm5dnC7gN-leYpOaGHerM3BGSjHNQHaPD6EFFHByy6LxKMMSU3idlt0YLkHLtMWd-46BP9-J8qtJ2YWmnhxifwEL8iCK1gkEMHNAJUn9LrgURWKdukz6NtbplRUL7Ri4--BGoQ" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">原味豚骨拉麵</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 200</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0ugvMnw9E6n1Q2yvDh2P-SkoNvaxuEDWJl8NcinUdfo8hQdT290eDg511554PStVAEt3IOXqmM_3JqfYg53IoERA2yu3ufwqXEWQ5tc6OyDInMYk0ZcpbSoqG82hKA-a55oV5XK97GFDGdMNAi4zxATfOPQkjobM06DrYL7RLMrE8OGhxfF5vXC-sUteI9IdByti2vwzG4XBq0iNkrJbZoHOrDseoNs3eG18Ui5PSt9UZGws0lVDA1qGV1OipBldkuXSVgX-LzCXOA" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">原味雞湯拉麵</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 190</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0ujuKVNKyVWot8XuK1kXDB1ra02pIckYnG8BczXF_oZ197SOTqboWpPLcEdxp1y_uOcFqscT1x66JZhcOLxys3pBRB_1dgghlhe1dZBdNBQxb39-rqJtpbdS66og-ZrIb9ov6u7ssJIVlvONVgiYPMR51DrlAcJpjt5HBSMOdc38xdSehIqb1lw-xI6LZ8MrTS6pqK_CuGR28zul2O1MXjYW1pCWRAy0HpD8arFp6aNhd51V-1Qd7tiaiDXPxzpmL8i7QYcEXUuPzg" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">激辛味噌拉麵</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 250</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0ujXD_srV09asR-WFvoONvMCZOiWTiwqqBXyPplJh5aRxPy2RDZh02wrAngI6fMT2FfmBKhSzf7rQzANempOZpW3CA3_PwIcKjBaHTIMZT7EV2ymqdJOOqlHd-o5tPIk1DND2BCT1BuGw8oLYDfNEq8f0hrUJ9pio4qlQMDQOwMRimO1tfvMaDx3z-rD2lWwKGmLwAsrcaLHzgG7mA_AjnU2HcL6VTd86HeKgDcG1vF8BaazqufFeha-Jl8BvlsD5KeUEGFbTTE4dQ" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">魚介豚骨沾麵</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 250</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0uhjpsic8Hx4DNQ4BNHDtNGbKneVNk1mTjwxv2WsOymVNEAwo6a5R8RqmgOAknwCeXYkqfNLiT017Sj1VO84_GP0f9Twu86pPmkRjsmksX8ghHHjHZKDnNIxnb7vJgDqeGoPF6hmlVwe09pArpNEqL7m5qIJG14cgurkBafcMH1WiHG10Bij4v02CH3WK8jaKE4dP6H9ljKBu0fzxyAhUUXxW2Wv5zaumJrl374ZP6bn8VTtsUFFjQcNMG9kKSPqupUeY_Gypj8rYg" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">特製叉燒飯</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 90</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="bg-[#161616] p-4 border border-white/5 hover:border-[#c11515]/50 transition-all group">
+                    <div class="aspect-square overflow-hidden mb-6 relative">
+                        <img src="https://lh3.googleusercontent.com/aida/ADBb0uijuTJ0E6VQZUYJ9Gzg1k0z8Ta5Zycv61YopqxBZ_p72wha7k7bJKyRaeNxsryM3ArEyTqIrPTxNdcvP9hsjtuIngvGnBQHnjUmW2yvcbblEwGJga3qYsBImZUsrG3eVgHDODfzDTI6Bw6_fvz3BLjkY1MUEeMEOB9k2CKMZVwEAQVzKxoO-bRqCVwfJS58i3ZKK3NHgvy0Gre5IdMivMCmwgyXe7DCBNj0aQWNGtUSooewccwXtqp2bW5gL16dw_zTSTQpaWCJ" class="w-full group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-2xl font-display">炙烤唐揚雞</h3>
+                        <p class="text-[#D4AF37] font-display">NT$ 120</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info -->
+    <section id="info" class="max-w-7xl mx-auto px-6 py-32 md:py-56">
+        <div class="flex flex-col lg:flex-row shadow-2xl border border-white/5 overflow-hidden">
+            <!-- Left: Info Content -->
+            <div class="lg:w-1/2 bg-[#161616] p-10 md:p-20 space-y-12 border-l-4 border-[#c11515]">
+                <div class="flex items-center gap-6 mb-8">
+                    <h2 class="text-4xl md:text-5xl font-display text-[#D4AF37] tracking-widest">店鋪情報</h2>
+                    <div class="flex-1 h-[1px] bg-[#D4AF37]/20"></div>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="space-y-4">
+                        <h4 class="text-[#c11515] font-display text-xs tracking-[0.3em] font-bold uppercase">所在地</h4>
+                        <p class="text-xl md:text-2xl font-light tracking-widest">402 臺中市南區興大路 90 號</p>
+                    </div>
+                    <div class="space-y-4">
+                        <h4 class="text-[#c11515] font-display text-xs tracking-[0.3em] font-bold uppercase">營業時間</h4>
+                        <p class="text-xl md:text-2xl font-light tracking-widest">17:00 - 01:00</p>
+                        <p class="opacity-40 text-xs">( 最後點餐 00:25 )</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-[#c11515]">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                                <h4 class="text-xs tracking-[0.3em] font-display font-bold uppercase">聯絡電話</h4>
+                            </div>
+                            <div class="w-[1px] h-4 bg-white/10"></div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                                <h4 class="text-xs tracking-[0.3em] font-display font-bold uppercase">Facebook</h4>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-8">
+                            <a href="tel:0976-519257" class="text-xl md:text-2xl font-light tracking-widest hover:text-[#c11515] transition-colors">0976-519-257</a>
+                            <a href="https://www.facebook.com/Zhongxiao.Ramen" target="_blank" class="text-xl md:text-2xl font-light tracking-widest hover:text-[#c11515] transition-colors">狸匠拉麵 忠孝店</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8 pt-12 border-t border-white/5">
+                    <div class="flex items-center gap-3 text-[#D4AF37] tracking-[0.2em]">
+                        <i data-lucide="info" class="w-5 h-5"></i>
+                        <span class="font-display">用餐規約</span>
+                    </div>
+                    <ul class="space-y-4 opacity-70 text-sm font-light leading-loose">
+                        <li class="flex gap-3"><span class="text-[#c11515]">•</span> 客滿時請先填寫候位單，等待叫號進場。</li>
+                        <li class="flex gap-3"><span class="text-[#c11515]">•</span> 過號順延兩組，超過兩組請重新登記。</li>
+                        <li class="flex gap-3"><span class="text-[#c11515]">•</span> 本店低消一人一席一麵（130cm以下低召50元）。</li>
+                        <li class="flex gap-3"><span class="text-[#c11515]">•</span> 同行友人請全員到齊後再入座。</li>
+                        <li class="flex gap-3"><span class="text-[#c11515]">•</span> 為維護品質，用完餐請先行讓位予候位貴賓。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Right: Map -->
+            <div class="lg:w-1/2 min-h-[500px] relative group">
+                <div 
+                    class="absolute inset-0 grayscale contrast-125 brightness-50 opacity-60" 
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSjIgD4cDKzoslEEgLsRa4OGhdQj8aegylMVBT6e2wLmIADq4zr41uEaGaZcO5a1Fab1fl4PdQJHw7lYz_Fg1W2yP2TOUnSEx626RqzcTGclv_iyF4s2FFR-pY66XrUdHCl0rCzJlPuTgZODhxXydVX8il07viTScrLIRY_Hueoxe7dv7AC2pa5KRHOPH6IBuIv_blKYCkDSptt9C9kWEMTx8mVrMO4873oYD6-pIW_QwkeHPGdztos3T_bT1PLg6NAJfsefSxRyA'); background-size: cover; background-position: center;">
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <a href="https://maps.app.goo.gl/wZbE7drP4GQjBvuU8" target="_blank" class="bg-white/10 backdrop-blur-md px-10 py-5 border border-white/20 hover:bg-[#c11515] transition-all tracking-[0.5em] text-sm">開啟 Google 地圖</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-black py-24 text-center border-t border-white/5">
+        <div class="flex items-center justify-center gap-6 mb-8">
+            <div class="w-10 h-10 bg-[#c11515]/20 border border-[#c11515] flex items-center justify-center text-[#c11515] font-bold">狸</div>
+            <p class="font-display text-xl tracking-[0.5em]">狸匠拉麵</p>
+        </div>
+        
+        <div class="flex justify-center gap-10 mb-12">
+            <a href="https://www.instagram.com/tanuki_takumi_ramen/" target="_blank" class="text-white/40 hover:text-[#D4AF37] transition-all"><i data-lucide="instagram"></i></a>
+            <a href="https://www.facebook.com/Zhongxiao.Ramen" target="_blank" class="text-white/40 hover:text-[#D4AF37] transition-all"><i data-lucide="facebook"></i></a>
+            <a href="tel:0976-519257" class="text-white/40 hover:text-[#D4AF37] transition-all"><i data-lucide="phone"></i></a>
+        </div>
+
+        <p class="opacity-20 text-[10px] tracking-[0.8em] uppercase">© 狸匠拉麵 | 職人精神 一生懸命</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Header scroll effect
+        window.onscroll = function() {
+            var header = document.getElementById('main-header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('bg-[#0a0a0a]/90', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/10');
+                header.classList.remove('py-8');
+            } else {
+                header.classList.remove('bg-[#0a0a0a]/90', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/10');
+                header.classList.add('py-8');
+            }
+        };
+
+        // Mobile menu toggle
+        const toggle = document.getElementById('mobile-toggle');
+        const close = document.getElementById('mobile-close');
+        const menu = document.getElementById('mobile-menu');
+
+        toggle.addEventListener('click', () => menu.classList.remove('hidden'));
+        close.addEventListener('click', () => menu.classList.add('hidden'));
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+    </script>
+</body>
+</html>
